@@ -1,12 +1,9 @@
-import java.io.File
+package myutilities
 
-class Utils {
-    fun readFile(fileName: String): ArrayList<String> {
-        val x:ArrayList<String> = ArrayList<String>()
-        val file = File("src/main/resources/$fileName")
-        file.forEachLine {
-            x.add(it)
-        }
-        return x;
-    }
+import java.nio.file.Files
+import java.nio.file.Paths
+
+object Utils {
+    fun readFile(fileName: String): List<String> =
+        Files.readAllLines(Paths.get(Utils::class.java.getResource(fileName).toURI()))
 }
