@@ -8,13 +8,9 @@ fun main(){
     for(i in 0 until data[0].length){
         var c0 = 0L
         c0 = data.stream().filter {
-            it.get(i) == '0'
+            it[i] == '0'
         }.count()
-        mostCommon += (if (c0 > data.size / 2)
-            "0"
-        else
-            "1"
-        ).toString()
+        mostCommon += (if (c0 > data.size / 2) "0" else "1").toString()
     }
     var leastCommon = ""
     mostCommon.forEach {
